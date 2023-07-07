@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+    <title>SpaceX</title>
+</head>
+
+<body>
+    <div class="body">
+        <div class="header">
+            <div class="header-content">
+                <img class="main-logo" src="{% static 'img/logo.png' %}" alt="">
+                <div class="menu-burger"></div>
+                <div class="menu">
+                    <ul>
+                        {% for menu in menus %}
+                        <li><a href="{{menu.link}}">{{menu.title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <section class="main-section">
+            <div class="main-content">
+                <div class="start">
+                    <div class="title">
+                        <span class="first-line">Путешествие</span>
+                        <span class="second-line">на красную планету</span>
+                    </div>
+                    <div class="button"><a href="#">Начать путешествие</a></div>
+                </div>
+                <div class="cards">
+                    {% for feature in features %}
+                    <div class="card">{{ feature.top_line }}<span class="feature">{{ feature.mid_line }}</span>{{ feature.bottom_line }}</div>
+                    {% endfor %}
+                    <!--
+                    <div class="card">Мы<span class="feature">1</span>на рынке</div>
+                    <div class="card">гарантируем<span class="feature">50%</span>безопасность</div>
+                    <div class="card">календарик<span class="feature">2001г.</span>в подарок</div>
+                    <div class="card">путешествие<span class="feature">597</span>дней</div>-->
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
