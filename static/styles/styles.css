@@ -1,0 +1,359 @@
+:root {
+    --bg-color: rgb(20, 20, 20);
+    --card-height: 150px;
+    --card-width: 150px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    font-weight: 100;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+}
+
+li {
+    margin: 0px 20px;
+    padding-bottom: 7px;
+    transition: all ease .2s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+li a {
+    font-size: 16px
+}
+
+@media screen and (max-width: 920px) {
+    li a {
+        font-size: 13px;
+    }
+}
+
+li:hover {
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+    transition: all ease .2s;
+}
+
+li a:hover {
+    transition: all ease .4s;
+    color: rgba(255, 255, 255, .3);
+}
+
+.body {
+    width: 100%;
+    height: 100vh;
+    background: url(../img/elon.jpg) no-repeat top center;
+    position: fixed;
+    overflow: hidden;
+    scrollbar-width: none;
+}
+
+.header {
+    width: 100%;
+    height: calc(20px + (100 - 20) * ((100vw - 320px) / (1400 - 320)));
+    background-color: rgba(0, 0, 0, .4);
+    filter: saturate(2);
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+}
+
+.container {
+    margin: 0 auto;
+    width: calc(5px + (1170 - 5) * ((100vw - 320px) / (1400 - 320)));
+    /*1170*/
+}
+
+.header-content {
+    margin: 0px auto 0 calc(0px + (100 - 0) * ((100vw - 320px) / (1400 - 320)));
+    padding: auto 0;
+    height: calc(20px + (100 - 20) * ((100vw - 320px) / (1400 - 320)));
+    width: calc(20px + (1170 - 20) * ((100vw - 320px) / (1400 - 320)));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-burger {
+    display: none;
+}
+
+.main-logo {
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, .3);
+}
+
+.main-section {
+    opacity: 1;
+    transition: all ease .5s;
+}
+
+.main-section.active {
+    opacity: 0;
+    transition: all ease .5s;
+}
+
+.main-content {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 100px auto 0 calc(0px + (100 - 0) * ((100vw - 320px) / (1400 - 320)));
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: calc(20px + (100 - 20) * ((100vw - 320px) / (1400 - 320)));
+}
+
+.title span {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(to right, white, #ff4005);
+}
+
+.first-line {
+    font-size: calc(35px + (70 - 35) * ((100vw - 320px) / (1400 - 320)));
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: calc(35px + (70 - 35) * ((100vw - 320px) / (1400 - 320)));
+}
+
+.second-line {
+    font-size: calc(15px + (30 - 15) * ((100vw - 320px) / (1400 - 320)));
+    font-weight: 400;
+    line-height: calc(25px + (40 - 25) * ((100vw - 320px) / (1400 - 320)));
+}
+
+.button {
+    position: relative;
+    width: 220px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    background-color: #10141c;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 320px;
+    background-color: white;
+    box-shadow: 0 0 20px 20px #ffffff;
+    animation: animate 5s linear infinite;
+}
+
+.button::after {
+    content: "";
+    position: absolute;
+    background-color: #10141c;
+    inset: 1px;
+}
+
+.button:hover::after {
+    background-color: #10141cf7;
+}
+
+.button a {
+    z-index: 2;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.cards {
+    width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    box-sizing: border-box;
+    height: var(--card-height);
+    width: var(--card-width);
+    transition: all ease .2s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
+}
+
+.card:nth-child(1) {
+    background: radial-gradient(calc(2*var(--card-height)) circle at var(--card-width) var(--card-height), rgba(255, 255, 255, 0.1), transparent 50%);
+}
+
+.card:nth-child(2) {
+    background: radial-gradient(calc(2*var(--card-height)) circle at 0 var(--card-height), rgba(255, 255, 255, 0.1), transparent 50%);
+}
+
+.card:nth-child(3) {
+    background: radial-gradient(calc(2*var(--card-height)) circle at var(--card-width) 0, rgba(255, 255, 255, 0.1), transparent 50%);
+}
+
+.card:nth-child(4) {
+    background: radial-gradient(calc(2*var(--card-height)) circle at 0 0, rgba(255, 255, 255, 0.1), transparent 50%);
+}
+
+.card:nth-child(1):hover {
+    transition: all ease .2s;
+    background: radial-gradient(calc(2*var(--card-height)) circle at var(--card-width) var(--card-height), rgba(255, 255, 255, 0.2), transparent 50%);
+}
+
+.card:nth-child(2):hover {
+    transition: all ease .2s;
+    background: radial-gradient(calc(2*var(--card-height)) circle at 0 var(--card-height), rgba(255, 255, 255, 0.2), transparent 50%);
+}
+
+.card:nth-child(3):hover {
+    transition: all ease .2s;
+    background: radial-gradient(calc(2*var(--card-height)) circle at var(--card-width) 0, rgba(255, 255, 255, 0.2), transparent 50%);
+}
+
+.card:nth-child(4):hover {
+    transition: all 1s linear;
+    background: radial-gradient(calc(2*var(--card-height)) circle at 0 0, rgba(255, 255, 255, 0.2), transparent 50%);
+}
+
+.feature {
+    font-size: calc(15px + (40 - 15) * ((100vw - 320px) / (1400 - 320)));
+    font-weight: bold;
+}
+
+.menu-burger {
+    background-color: white;
+    width: 30px;
+    height: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .body.active {
+        overflow: hidden;
+    }
+    .main-content {
+        margin-left: 10px;
+    }
+    .menu-burger {
+        background-color: white;
+        width: 15px;
+        height: 1px;
+        position: absolute;
+        right: 20px;
+        transition: all ease .5s;
+        z-index: 100;
+        display: flex;
+    }
+    .menu-burger::before {
+        content: "";
+        background-color: white;
+        width: 15px;
+        height: 1px;
+        position: absolute;
+        top: -5px;
+        transition: all ease .5s;
+    }
+    .menu-burger::after {
+        content: "";
+        background-color: white;
+        width: 15px;
+        height: 1px;
+        position: absolute;
+        top: 5px;
+        transition: all ease .5s;
+    }
+    .menu-burger.active {
+        transform: rotate(45deg);
+        transition: all ease .5s;
+    }
+    .menu-burger.active::after {
+        display: none;
+        transition: all ease .5s;
+    }
+    .menu-burger.active::before {
+        top: 0;
+        transform: rotate(90deg);
+        transition: all ease .5s;
+    }
+    .menu {
+        padding: 100px 0 0 40px;
+        z-index: 10;
+        position: fixed;
+        top: -100vh;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        background: linear-gradient(to bottom, black, transparent);
+        transition: all ease .5s;
+    }
+    .menu.active {
+        top: 0;
+        transition: all ease .5s;
+    }
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+    }
+    li {
+        margin: 10px 0px;
+        padding-bottom: 7px;
+        transition: all ease .2s;
+    }
+    .card {
+        width: calc(80px + (150 - 80) * ((100vw - 500px) / (768 - 500)));
+        height: calc(80px + (150 - 80) * ((100vw - 500px) / (768 - 500)));
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .start {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 50vh;
+    }
+    .title {
+        align-self: flex-start;
+    }
+    .main-content {
+        flex-direction: column;
+        height: 200vh;
+        justify-content: space-between;
+    }
+    .body {
+        overflow-y: visible;
+    }
+    .cards {
+        margin-left: calc(30px + (40 - 30) * ((100vw - 320px) / (500 - 320)));
+        margin-bottom: 200px;
+        width: calc(300px + (500 - 300) * ((100vw - 320px) / (500 - 320)));
+        height: calc(300px + (200 - 300) * ((100vw - 320px) / (500 - 320)));
+        gap: 10px;
+    }
+    .card {
+        width: calc(100px + (200 - 100) * ((100vw - 320px) / (500 - 320)));
+        height: calc(100px + (200 - 100) * ((100vw - 320px) / (500 - 320)));
+        margin: 0;
+    }
+}
